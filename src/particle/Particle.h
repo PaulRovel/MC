@@ -1,4 +1,7 @@
 #pragma once
+
+class Particle;
+
 #include "../phase_coordinates/IPhaseCoordinate.h"
 #include "../Core.h"
 

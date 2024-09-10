@@ -1,6 +1,9 @@
 #pragma once
 #include <vector>
 #include <set>
+
+class Core;
+
 #include "particle/Particle.h"
 
 class Core

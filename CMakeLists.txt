@@ -13,6 +13,7 @@ src/particle/Particle.cpp
 src/phase_coordinates/NullCoordinate.cpp
 src/reaction/TestReaction.cpp
 src/source/DeterministicSource.cpp
+src/utils/utils.cpp
 )
 
 add_executable(Test src/main.cpp 

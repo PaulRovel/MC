@@ -27,3 +27,8 @@ double Nuclide::get_total_cross_section_at(const IPhaseCoordinate *coord)
     }
     return result;
 }
+
+void Nuclide::handle_collision(Particle *particle)
+{
+    //TODO: implement this
+}
