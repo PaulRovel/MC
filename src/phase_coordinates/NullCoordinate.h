@@ -7,6 +7,7 @@ class NullCoordinate : public IPhaseCoordinate
 public:
     NullCoordinate();
     ~NullCoordinate();
+    NullCoordinate* copy();
 
 private:
 };

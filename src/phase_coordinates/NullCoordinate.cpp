@@ -7,3 +7,8 @@ NullCoordinate::NullCoordinate() {
 NullCoordinate::~NullCoordinate() {
     // Destructeur
 }
+
+NullCoordinate *NullCoordinate::copy()
+{
+    return new NullCoordinate;
+}
