@@ -10,7 +10,7 @@ private:
 public:
     TestReaction();
     ~TestReaction();
-    double get_cross_section_at(IPhaseCoordinate* coord);
+    double get_cross_section_at(const IPhaseCoordinate* coord);
 
 private:
 };

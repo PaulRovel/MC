@@ -16,3 +16,9 @@ Particle::~Particle() {
     // Destructeur
     delete this->phase_coordinate;
 }
+
+void Particle::move(double distance)
+{
+    this->phase_coordinate->move(distance);
+    //TODO: Here register the movement of the particle.
+}

@@ -9,7 +9,7 @@ TestReaction::~TestReaction() {
     // Destructeur
 }
 
-double TestReaction::get_cross_section_at(IPhaseCoordinate *coord)
+double TestReaction::get_cross_section_at(const IPhaseCoordinate *coord)
 {
     return this->cross_section;
 }

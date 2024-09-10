@@ -18,7 +18,7 @@ void Nuclide::add_reaction(IReaction* reaction)
     this->reactions.push_back(reaction);
 }
 
-double Nuclide::get_total_cross_section_at(IPhaseCoordinate *coord)
+double Nuclide::get_total_cross_section_at(const IPhaseCoordinate *coord)
 {
     double result = 0;
     for (IReaction* reaction : this->reactions)

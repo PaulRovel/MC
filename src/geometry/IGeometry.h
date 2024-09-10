@@ -6,6 +6,7 @@ class IGeometry
 {
 public:
     virtual ~IGeometry(){};
-    virtual Mixture* get_mixture_at_coordinate(IPhaseCoordinate*) = 0;
+    virtual Mixture* get_mixture_at_coordinate(const IPhaseCoordinate*) = 0;
+    virtual double distance_to_next_zone(const IPhaseCoordinate* current_coordinate) = 0;
 private:
 };

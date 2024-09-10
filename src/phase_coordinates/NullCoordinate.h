@@ -8,6 +8,7 @@ public:
     NullCoordinate();
     ~NullCoordinate();
     NullCoordinate* copy();
+    void move(double distance){};
 
 private:
 };

@@ -1,4 +1,5 @@
 #include "PointGeometry.h"
+#include "math.h"
 
 PointGeometry::PointGeometry(Mixture* mixture) {
     // Constructeur
@@ -10,6 +11,11 @@ PointGeometry::~PointGeometry() {
     delete this->mixture;
 }
 
-Mixture* PointGeometry::get_mixture_at_coordinate(IPhaseCoordinate* coord){
+Mixture* PointGeometry::get_mixture_at_coordinate(const IPhaseCoordinate* coord){
     return this->mixture;
+}
+
+double PointGeometry::distance_to_next_zone(const IPhaseCoordinate *current_coordinate)
+{
+    return INFINITY;
 }

@@ -9,7 +9,7 @@ Mixture::~Mixture()
     // Destructeur
 }
 
-double Mixture::get_total_macro_cross_section_at(IPhaseCoordinate *coord)
+double Mixture::get_total_macro_cross_section_at(const IPhaseCoordinate *coord)
 {
     double total_macro_cross_section = 0;
     for (int i = 0; i < this->nuclides.size(); i++)
