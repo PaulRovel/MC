@@ -7,7 +7,7 @@ class ISource
 private:
 //Methods
 public:
-    virtual ~ISource()=0;
+    virtual ~ISource(){};
     virtual Particle* get_new_particle()=0;
 
 private:

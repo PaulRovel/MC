@@ -5,7 +5,7 @@
 class IGeometry
 {
 public:
-    virtual ~IGeometry() = 0;
+    virtual ~IGeometry(){};
     virtual Mixture* get_mixture_at_coordinate(IPhaseCoordinate*) = 0;
 private:
 };
