@@ -11,6 +11,7 @@ public:
     TestReaction();
     ~TestReaction();
     double get_cross_section_at(const IPhaseCoordinate* coord);
+    void handle_collision(Particle* particle);
 
 private:
 };

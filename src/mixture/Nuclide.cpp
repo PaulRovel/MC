@@ -1,4 +1,6 @@
 #include "Nuclide.h"
+#include "../utils/utils.h"
+
 
 Nuclide::Nuclide() {
     // Constructeur
@@ -30,5 +32,12 @@ double Nuclide::get_total_cross_section_at(const IPhaseCoordinate *coord)
 
 void Nuclide::handle_collision(Particle *particle)
 {
-    //TODO: implement this
+    std::vector<double> xsection_array = std::vector<double>(this->reactions.size());
+    for (int i = 0; i < this->reactions.size(); i++)
+    {
+        xsection_array[i] = this->reactions[i]->get_cross_section_at(particle->get_coordinate());
+    }
+
+    int i = draw_from_array(xsection_array);
+    this->reactions[i]->handle_collision(particle);
 }
