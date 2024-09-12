@@ -11,6 +11,7 @@ src/mixture/Mixture.cpp
 src/mixture/Nuclide.cpp
 src/particle/Particle.cpp
 src/phase_coordinates/NullCoordinate.cpp
+src/phase_coordinates/GeneralCoordinate.cpp
 src/reaction/TestReaction.cpp
 src/source/DeterministicSource.cpp
 src/utils/utils.cpp

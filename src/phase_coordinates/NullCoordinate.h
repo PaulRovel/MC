@@ -9,6 +9,9 @@ public:
     ~NullCoordinate();
     NullCoordinate* copy();
     void move(double distance){};
+    int get_spatial_dimension();
+    bool is_mono_kinetic();
+    double get_energy();
 
 private:
 };
