@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED 23)
 
 set(source_files
-src/Core.cpp
+src/ParticleManager.cpp
+
+src/displacement_manager/SurfaceBasedDisplacer.cpp
 
 src/geometry/PointGeometry.cpp
 

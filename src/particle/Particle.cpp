@@ -2,9 +2,9 @@
 
 
 Particle::Particle(IPhaseCoordinate* phase_coordinate)
+:phase_coordinate(phase_coordinate),_is_active(true)
 {
     // Constructor that sets the initial coordinate of the particle.
-    this->phase_coordinate = phase_coordinate;
     Particle::core->add_particle(this);
 }
 
@@ -21,7 +21,8 @@ void Particle::move(double distance)
 
 void Particle::de_activate()
 {
-    Particle::core->de_activate_particle(this);
+    this->_is_active = false;
+    //TODO: Here register de-activation.
 }
 
-Core* Particle::core = nullptr;
+ParticleManager* Particle::core = nullptr;
