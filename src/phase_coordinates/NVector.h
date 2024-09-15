@@ -3,17 +3,23 @@
 #include <cstddef>  // for std::size_t
 #include <cassert>  // for assert
 
-template <typename T, std::size_t N>
+template <std::size_t N>
 struct NVector {
-    T data[N > 0 ? N : 1];  // Ensure array size is at least 1 for N=0
+    double data[N > 0 ? N : 1];  // Ensure array size is at least 1 for N=0
+
+    void deflect_isotropic();
+    void deflect_mu(double mu);
+
+
+
 
     // Access operators
-    T& operator[](std::size_t i) {
+    double& operator[](std::size_t i) {
         assert(i < N && "Index out of bounds!");
         return data[i];
     }
 
-    const T& operator[](std::size_t i) const {
+    const double& operator[](std::size_t i) const {
         assert(i < N && "Index out of bounds!");
         return data[i];
     }
@@ -24,8 +30,8 @@ struct NVector {
     }
 
     // Vector addition
-    NVector<T, N> operator+(const NVector<T, N>& other) const {
-        NVector<T, N> result;
+    NVector<N> operator+(const NVector<N>& other) const {
+        NVector<N> result;
         for (std::size_t i = 0; i < N; ++i) {
             result[i] = data[i] + other[i];
         }
@@ -33,7 +39,7 @@ struct NVector {
     }
 
     // In-place vector addition
-    NVector<T, N>& operator+=(const NVector<T, N>& other) {
+    NVector<N>& operator+=(const NVector<N>& other) {
         for (std::size_t i = 0; i < N; ++i) {
             data[i] += other[i];
         }
@@ -41,8 +47,8 @@ struct NVector {
     }
 
     // Vector subtraction
-    NVector<T, N> operator-(const NVector<T, N>& other) const {
-        NVector<T, N> result;
+    NVector<N> operator-(const NVector<N>& other) const {
+        NVector<N> result;
         for (std::size_t i = 0; i < N; ++i) {
             result[i] = data[i] - other[i];
         }
@@ -50,7 +56,7 @@ struct NVector {
     }
 
     // In-place vector subtraction
-    NVector<T, N>& operator-=(const NVector<T, N>& other) {
+    NVector<N>& operator-=(const NVector<N>& other) {
         for (std::size_t i = 0; i < N; ++i) {
             data[i] -= other[i];
         }
@@ -58,8 +64,8 @@ struct NVector {
     }
 
     // Scalar multiplication
-    NVector<T, N> operator*(const T& scalar) const {
-        NVector<T, N> result;
+    NVector<N> operator*(const double& scalar) const {
+        NVector<N> result;
         for (std::size_t i = 0; i < N; ++i) {
             result[i] = data[i] * scalar;
         }
@@ -67,7 +73,7 @@ struct NVector {
     }
 
     // In-place scalar multiplication
-    NVector<T, N>& operator*=(const T& scalar) {
+    NVector<N>& operator*=(const double& scalar) {
         for (std::size_t i = 0; i < N; ++i) {
             data[i] *= scalar;
         }
@@ -75,9 +81,9 @@ struct NVector {
     }
 
     // Scalar division
-    NVector<T, N> operator/(const T& scalar) const {
+    NVector<N> operator/(const double& scalar) const {
         assert(scalar != 0 && "Division by zero!");  // Prevent division by zero
-        NVector<T, N> result;
+        NVector<N> result;
         for (std::size_t i = 0; i < N; ++i) {
             result[i] = data[i] / scalar;
         }
@@ -85,7 +91,7 @@ struct NVector {
     }
 
     // In-place scalar division
-    NVector<T, N>& operator/=(const T& scalar) {
+    NVector<N>& operator/=(const double& scalar) {
         assert(scalar != 0 && "Division by zero!");  // Prevent division by zero
         for (std::size_t i = 0; i < N; ++i) {
             data[i] /= scalar;
@@ -94,7 +100,7 @@ struct NVector {
     }
 
     // Output for debugging
-    friend std::ostream& operator<<(std::ostream& os, const NVector<T, N>& arr) {
+    friend std::ostream& operator<<(std::ostream& os, const NVector<N>& arr) {
         os << "[";
         for (std::size_t i = 0; i < N; ++i) {
             os << arr[i];
