@@ -23,14 +23,14 @@ public:
     //Interface getters
     int get_spatial_dimension() const {return spatial_dimension;};
     bool is_mono_kinetic() const {return mono_kinetic;};
-    bool get_energy() const {return energy;};
+    double get_energy() const {return energy;};
 
     //Other getters
     const NVector<spatial_dimension>& get_position() const {return position;};
     const NVector<spatial_dimension>& get_orientation() const {return orientation;};
     
     //Interface modifiers
-    void move(double distance){position+=distance*orientation;};
+    void move(double distance){position+=orientation*distance;};
     void deflect_isotropic() {this->orientation.deflect_isotropic();};
     void deflect_mu(double mu) {this->orientation.deflect_mu(mu);};
 

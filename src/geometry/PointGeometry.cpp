@@ -11,7 +11,7 @@ PointGeometry::~PointGeometry() {
     delete this->mixture;
 }
 
-Mixture* PointGeometry::get_mixture_at_coordinate(const IPhaseCoordinate* coord){
+std::optional<Mixture*> PointGeometry::get_mixture_at_coordinate(const IPhaseCoordinate* coord){
     return this->mixture;
 }
 

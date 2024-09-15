@@ -21,7 +21,14 @@ void SurfaceBasedDisplacer::transport_particle(Particle *particle)
     
     while (true)
     {
-        Mixture* current_mixture = this->geometry->get_mixture_at_coordinate(particle->get_coordinate());
+        auto mixture_or_out = this->geometry->get_mixture_at_coordinate(particle->get_coordinate());
+        if (!mixture_or_out.has_value())
+        {
+            //Then we have escaped the geometry
+            particle->de_activate();
+            return;
+        }
+        Mixture* current_mixture = mixture_or_out.value();
         //TODO: Check for out of geometry
         double total_xs = current_mixture->get_total_macro_cross_section_at(particle->get_coordinate());
         std::exponential_distribution<> distribution (total_xs);
